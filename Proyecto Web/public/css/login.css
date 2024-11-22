@@ -1,0 +1,62 @@
+body {
+  background: linear-gradient(to right, #ff6a00, #ff4500); /* Colores vibrantes tipo noticias */
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.login-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más marcada */
+  width: 100%;
+  max-width: 400px;
+}
+
+h2 {
+  font-weight: bold;
+  color: #ff4500; /* Color principal de la marca */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text-muted {
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #ff4500;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #e63900;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.footer-text a {
+  color: #ff4500;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+}
+
+.news-logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 80px;
+  height: 80px;
+}

@@ -22,6 +22,11 @@ const noticiaSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    categoria: {
+        type: String,
+        required: true,
+        enum: ['Deportes', 'Política', 'Entretenimiento', 'Ciencia', 'Tecnología', 'Economía'], // Lista de categorías permitidas
+    },
 });
 
 // Crea y exporta el modelo

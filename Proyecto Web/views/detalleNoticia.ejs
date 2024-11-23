@@ -1,0 +1,50 @@
+<%- include('partials/headerUsuario') %>
+<link rel="stylesheet" href="/css/detalleNoticia.css">
+
+<div class="container mt-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold text-primary display-4"><%= noticia.titulo %></h1>
+        <p class="text-muted fs-6">
+            <strong>Autor:</strong> <%= noticia.autor %> &nbsp;|&nbsp; 
+            <strong>Fecha:</strong> <%= noticia.fechaPublicacion.toLocaleDateString('es-ES') %> &nbsp;|&nbsp; 
+            <strong>Categoría:</strong> <span class="badge bg-secondary"><%= noticia.categoria %></span>
+        </p>
+    </div>
+
+    <!-- Imagen destacada -->
+    <% if (noticia.imagen) { %>
+        <div class="text-center mb-4">
+            <img src="<%= noticia.imagen %>" alt="<%= noticia.titulo %>" class="img-fluid rounded shadow-lg" style="max-height: 500px; object-fit: cover;">
+        </div>
+    <% } else { %>
+        <div class="text-center mb-4">
+            <div class="bg-secondary text-white d-flex justify-content-center align-items-center" style="height: 300px;">
+                <p class="mb-0 fs-4">Sin imagen disponible</p>
+            </div>
+        </div>
+    <% } %>
+
+    <!-- Contenido de la noticia -->
+    <div class="contenido-noticia mb-5">
+        <p class="fs-5" style="line-height: 1.8; text-align: justify;">
+            <%= noticia.contenido %>
+        </p>
+    </div>
+
+    <!-- Botón para regresar -->
+    <div class="mt-5 text-center">
+        <a href="/noticias" class="btn btn-outline-primary btn-lg px-5 py-3">← Volver a Noticias</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container text-center">
+        <p class="mb-0 fs-6">© <%= new Date().getFullYear() %> Noticias Web. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

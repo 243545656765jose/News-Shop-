@@ -5,7 +5,7 @@ const Usuario = require('../models/usuarios')
 router.get('/login', async (req, res) => {
     try {
         const users = await Usuario.find(); 
-        res.render('login', { users }); // Renderiza la vista pasando los usuarios como contexto
+        res.render('login', { users }); 
     } catch (error) {
         console.error('Error al obtener usuarios:', error);
         res.status(500).send('Error al obtener usuarios');
@@ -16,6 +16,12 @@ router.get('/login', async (req, res) => {
 router.get('/registro', (req, res) => {
     res.render('registro'); 
 });
+
+router.get('/addNoticia', (req, res) => {
+    res.render('addNoticia'); 
+});
+
+
 router.post('/registro', async (req, res) => {
     const { name, email, password } = req.body;
 

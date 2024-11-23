@@ -1,0 +1,20 @@
+body {
+    background-color: #f8f9fa; 
+}
+
+h1 {
+    color: #007bff; 
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+button {
+    font-size: 16px;
+}

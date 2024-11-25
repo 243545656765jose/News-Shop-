@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Usuario = require('../models/usuarios'); // Importa el modelo de usuario
-const bcrypt = require('bcrypt'); // Para verificar contraseñas encriptadas
+const bcrypt = require('bcrypt'); 
 
-// Usuario quemado
+//admin
 const USUARIO_QUEMADO = {
     name: 'admin',
-    password: 'admin', // Contraseña predefinida
-    redireccion: '/noticias/menuA', // Página a la que será redirigido el usuario quemado
+    password: 'admin', 
+    redireccion: '/noticias/menuA', 
 };
 
 // Procesar inicio de sesión
@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        // Verificar si es el usuario quemado
+        // Verificar si es el usuario adm
         if (username === USUARIO_QUEMADO.name && password === USUARIO_QUEMADO.password) {
             return res.redirect(USUARIO_QUEMADO.redireccion); // Redirigir al área de administración
         }

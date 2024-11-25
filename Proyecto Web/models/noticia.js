@@ -12,11 +12,11 @@ const noticiaSchema = new mongoose.Schema({
         required: true,
     },
     imagen: {
-        type: String, // Ruta de la imagen subida
+        type: String, 
     },
     fechaPublicacion: {
         type: Date,
-        default: Date.now, // Fecha de creación por defecto
+        default: Date.now, 
     },
     autor: {
         type: String,
@@ -25,7 +25,7 @@ const noticiaSchema = new mongoose.Schema({
     categoria: {
         type: String,
         required: true,
-        enum: ['Deportes', 'Política', 'Entretenimiento', 'Ciencia', 'Tecnología', 'Economía'], // Lista de categorías permitidas
+        enum: ['Deportes', 'Política', 'Entretenimiento', 'Ciencia', 'Tecnología', 'Economía'], 
     },
 });
 

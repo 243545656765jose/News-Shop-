@@ -3,18 +3,20 @@ const router = express.Router();
 const Noticia = require('../models/noticia'); // Importar el modelo
 const upload = require('../upload'); // Middleware para manejar imágenes con Multer
 
+
 // Ruta para listar noticias con búsqueda y filtro
 router.get('/', async (req, res) => {
     try {
         const { search, categoria } = req.query; // Captura parámetros de búsqueda y categoría
 
+
         // Construye un filtro dinámico
         const filtro = {};
         if (search) {
-            filtro.titulo = { $regex: search, $options: 'i' }; // Búsqueda insensible a mayúsculas
+            filtro.titulo = { $regex: search, $options: 'i' }; 
         }
         if (categoria) {
-            filtro.categoria = categoria; // Filtra por categoría si se selecciona
+            filtro.categoria = categoria; 
         }
 
         // Busca noticias en la base de datos según el filtro
@@ -24,8 +26,8 @@ router.get('/', async (req, res) => {
         res.render('noticias', { 
             title: 'Lista de Noticias', 
             noticias, 
-            search: search || '', // Valor por defecto para búsqueda
-            categoria: categoria || '' // Valor por defecto para categoría
+            search: search || '', 
+            categoria: categoria || '' 
         });
     } catch (error) {
         console.error('Error al obtener las noticias:', error);
@@ -33,27 +35,29 @@ router.get('/', async (req, res) => {
     }
 });
 
+
 // Ruta para mostrar el formulario de nueva noticia
 router.get('/add', (req, res) => {
-    res.render('addNoticia', { title: 'Añadir Noticia' }); // Renderiza la vista del formulario
+    res.render('addNoticia', { title: 'Añadir Noticia' }); 
 });
+
 
 // Ruta para crear una nueva noticia
 router.post('/add', upload.single('imagen'), async (req, res) => {
     try {
-        const { titulo, contenido, autor, categoria } = req.body; // Incluye la categoría
+        const { titulo, contenido, autor, categoria } = req.body; 
         const nuevaNoticia = new Noticia({
             titulo,
             contenido,
             autor,
-            categoria, // Asigna la categoría enviada por el formulario
-            imagen: req.file ? `/img/${req.file.filename}` : null, // Guarda la ruta de la imagen si se sube
+            categoria, 
+            imagen: req.file ? `/img/${req.file.filename}` : null, 
         });
 
         // Guarda la nueva noticia en la base de datos
         await nuevaNoticia.save();
         console.log('Noticia creada:', nuevaNoticia);
-        res.redirect('/noticias/menuA'); // Redirige al listado de noticias
+        res.redirect('/noticias/menuA'); 
     } catch (error) {
         console.error('Error al crear la noticia:', error);
         res.status(500).send('Error en el servidor al crear la noticia');

@@ -13,11 +13,6 @@ const app = express();
 
 
 
-app.use(session({
-    secret: 'mi_secreto_seguro', // Cambia esto por un secreto más seguro
-    resave: false,
-    saveUninitialized: true,
-}));
 
 // Registrar rutas
 app.use('/logout', routerLogout); // Registrar la ruta de logout

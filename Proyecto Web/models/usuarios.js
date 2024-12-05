@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Define el esquema del usuario
 const usuarioSchema = new mongoose.Schema({
-    name: { // Cambia `username` a `name` si es necesario
+    name: {
         type: String,
         required: [true, 'El nombre de usuario es obligatorio'],
         unique: true,

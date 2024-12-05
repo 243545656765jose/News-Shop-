@@ -111,6 +111,7 @@ router.post('/editar/:id', upload.single('imagen'), async (req, res) => {
         res.status(500).send('Error al actualizar la noticia.');
     }
 });
+
 router.post('/eliminar/:id', async (req, res) => {
     try {
         const id = req.params.id;
